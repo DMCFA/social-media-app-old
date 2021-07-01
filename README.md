@@ -2,6 +2,8 @@ Full stack Social Media Web App built with React.js and Redux
 
 Backend REST API server with Node.js, Express and MongoDB
 
+**_CURRENTLY IN DEVELOPMENT_**
+
 For testing purposes use the sample account:
 username: test
 password: test123.
