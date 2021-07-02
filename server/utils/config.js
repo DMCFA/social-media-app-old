@@ -1,9 +1,7 @@
-require('dotenv').config()
+/* eslint-disable no-undef */
+import dotenv from 'dotenv'
 
-let MONGODB_CONNECTION = process.env.CONNECT_URI
-let PORT = process.env.PORT
+dotenv.config()
 
-export default {
-    MONGODB_CONNECTION,
-    PORT
-}
+export let MONGODB_CONNECTION = process.env.CONNECT_URI
+export let PORT = process.env.PORT || 3001
