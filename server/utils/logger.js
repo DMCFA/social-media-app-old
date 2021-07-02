@@ -1,5 +1,7 @@
-const info = (...params) => console.log(...params)
+const infoMessage = (...params) => console.log(...params)
 
-export const error = (...params) => console.log(...params)
+const errorMessage = (...params) => console.log(...params)
 
-export default info
+export {
+	infoMessage,
+	errorMessage }
