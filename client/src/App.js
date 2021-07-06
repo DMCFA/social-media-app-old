@@ -1,6 +1,8 @@
 import React from "react";
 import { 
   Container,
+  Grow,
+  Grid
 } from '@material-ui/core'
 
 import mainPic from './images/mainPic.jpg'
@@ -11,9 +13,17 @@ function App() {
   const classes = useStyles()
 
   return (
-    <Container>
+    <Container className={classes.body}>
       <Header />
-      <img className={classes.image} src={mainPic} alt='traveller looking at mountains'/>
+        <Grow in>
+          <Container>
+            <Grid container justify="space-between" alignItems="stretch" spacing={3}>
+              <Grid item xs={12} sm={4}>
+                
+              </Grid>
+            </Grid>
+          </Container>
+        </Grow>
     </Container>
   );
 }

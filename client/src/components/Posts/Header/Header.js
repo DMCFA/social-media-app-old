@@ -3,11 +3,13 @@ import {
   AppBar,
   Typography
 } from '@material-ui/core'
+import makeStyles from './styles'
 
 const Header = () => {
+  const classes = makeStyles()
 
   return (
-      <AppBar color='inherit' position='static'>
+      <AppBar className={classes.header} position='static'>
         <Typography variant='h2' align='left'>
           Travel Connect
         </Typography>
