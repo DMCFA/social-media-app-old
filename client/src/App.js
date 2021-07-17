@@ -1,31 +1,32 @@
-import React from "react";
+import React from 'react'
 import { 
-  Container,
-  Grow,
-  Grid
+	Container,
+	Grow,
+	Grid
 } from '@material-ui/core'
 
 import mainPic from './images/mainPic.jpg'
-import Header from "./components/Posts/Header/Header";
+import Header from './components/Posts/Header/Header'
 import useStyles from './styles'
+import Login from './components/Authentication/Login'
 
 function App() {
-  const classes = useStyles()
+	const classes = useStyles()
 
-  return (
-    <Container className={classes.body}>
-      <Header />
-        <Grow in>
-          <Container>
-            <Grid container justify="space-between" alignItems="stretch" spacing={3}>
-              <Grid item xs={12} sm={4}>
+	return (
+		<Container className={classes.body}>
+			<Login />
+			<Grow in>
+				<Container>
+					<Grid container justify="space-between" alignItems="stretch" spacing={3}>
+						<Grid item xs={12} sm={4}>
                 
-              </Grid>
-            </Grid>
-          </Container>
-        </Grow>
-    </Container>
-  );
+						</Grid>
+					</Grid>
+				</Container>
+			</Grow>
+		</Container>
+	)
 }
 
-export default App;
+export default App
