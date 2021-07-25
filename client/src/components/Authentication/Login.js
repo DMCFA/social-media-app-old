@@ -1,54 +1,53 @@
-import React, { useEffect } from "react"
-// import { useDispatch } from 'react-redux'
-import { useForm, useController, useFieldArray } from "react-hook-form"
-//import login reducer
-
+import React, { useState } from 'react'
+import Header from '../Posts/Header/Header'
 import useStyles from './styles'
+import {
+  TextField,
+  Button
+} from '@material-ui/core'
 
-export default function Login() {
-    const classes = useStyles()
+const Login = () => {
 
-    const {
-      register,
-      formState: { errors },
-      handleSubmit
-    } = useForm({
-      mode: "onChange"
-    });
-    const onSubmit = (data) => {
-      console.log((JSON.stringify(data)))
-    };
+  const classes = useStyles()
   
-    return (
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <label htmlFor="email">Email</label>
-        <input
-          placeholder="Your email goes here"
-          {...register("email", {
-            required: "An email is required",
-            pattern: {
-              value: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-              message: "Invalid email address"
-            }
-          })}
-        />
-        {errors.email && <p>{errors.email.message}</p>}
-  
-        <label htmlFor="password">Password</label>
-        <input
-          placeholder="Your password goes here"
-          {...register("password", {
-            required: "A password is required",
-            minLength: {
-              value: 5,
-              message: "Password needs to have a minimum of 5 characters"
-            }
-          })}
-        />
-        {errors.password && <p>{errors.lastName.message}</p>}
-        <input type="submit" />
-      </form>
-    );
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+
+  const handleSubmit = (e) => {
+    setEmail({value: e.target.value})
+    setPassword({value: e.target.value})
+    e.preventDefault()
   }
 
-//connect to redux
+  const handleChange = (e) => {
+    setEmail({value: e.target.value})
+    setPassword({value: e.target.value})
+  }
+
+  return(
+    <div>
+      <Header />
+      <div>
+        <h2 className={classes.title}>Login to Travel Connect</h2>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <TextField
+              label='email' id='email' value={email}
+              onChange={handleChange}
+              />
+              <div>
+                <TextField
+                  label='password' id='password' value={password}
+                  onChange={handleChange}
+                  />
+              </div>
+              <Button variant="contained" color="primary" type='submit' id='login'>Login</Button>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
+}
+
+export default Login
