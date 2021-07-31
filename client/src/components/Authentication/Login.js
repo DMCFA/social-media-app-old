@@ -28,23 +28,39 @@ const Login = () => {
   return(
     <div>
       <Header />
-      <div>
+      <div className={classes.flex}>
         <h2 className={classes.title}>Login to Travel Connect</h2>
+        <div>
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className={classes.form}>
             <TextField
-              label='email' id='email' value={email}
+              className={classes.email}
+              autoFocus
+              helperText='Your email goes here'
+              label='Email' id='email' value={email}
               onChange={handleChange}
               />
-              <div>
-                <TextField
-                  label='password' id='password' value={password}
-                  onChange={handleChange}
-                  />
-              </div>
-              <Button variant="contained" color="primary" type='submit' id='login'>Login</Button>
+          </div>
+          <div>
+            <TextField
+              className={classes.password}
+              autoComplete='off'
+              helperText='Your password goes here'
+              label='Password' id='password' value={password}
+              onChange={handleChange}
+            />
+          </div>
+          <div>
+            <Button
+              className={classes.button} 
+              variant="contained" 
+              color="primary" 
+              type='submit' id='login'>
+              Login
+            </Button>
           </div>
         </form>
+        </div>
       </div>
     </div>
   )
