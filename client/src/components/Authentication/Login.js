@@ -58,6 +58,13 @@ const Login = () => {
               type='submit' id='login'>
               Login
             </Button>
+            <Button
+              className={classes.button} 
+              variant="contained" 
+              color="secondary" 
+              type='submit' id='signup'>
+              Sign Up
+            </Button>
           </div>
         </form>
         </div>
