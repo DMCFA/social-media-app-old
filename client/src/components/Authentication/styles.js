@@ -16,7 +16,7 @@ export default makeStyles(() => ({
         letterSpacing: '5px'
     },
     form: {
-        marginTop: '2rem'
+        marginTop: '2rem',
     },
     email: {
         padding: '5px',
@@ -29,6 +29,7 @@ export default makeStyles(() => ({
     },
     button: {
         alignItems: 'center',
-        padding: '15px'
+        padding: '15px',
+        margin: '10px'
     }
 }))

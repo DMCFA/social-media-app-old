@@ -2,8 +2,8 @@ import { makeStyles } from "@material-ui/core";
 
 export default makeStyles(() => ({
     body: {
-        minHeight: 'auto',
+        minHeight: '100vh',
         minWidth: '100%',
-        backgroundColor: '#E8F6EF'
+        backgroundColor: '#DBE2EF'
     }
 }))
