@@ -1,10 +1,20 @@
 import React, { useState } from 'react'
 import Header from '../Posts/Header/Header'
+import Recovery from '../Authentication/Recovery/Recovery.js'
+import loginService from '../../services/login'
+
+import {
+  BrowserRouter as Router,
+  Link
+} from "react-router-dom";
+
 import useStyles from './styles'
 import {
   TextField,
-  Button
+  Button,
+  Typography,
 } from '@material-ui/core'
+
 
 const Login = () => {
 
@@ -12,6 +22,26 @@ const Login = () => {
   
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [user, setUser] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)
+
+  const handleLogin = async (e) => {
+    e.preventDefault()
+
+    try {
+      const user = await loginService.login({
+        email, password
+      })
+      setUser(user)
+      setEmail('')
+      setPassword('')
+    } catch (e) {
+      setErrorMessage('Wrong credentials')
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 3000)
+    }
+  }
 
 
   const handleSubmit = (e) => {
@@ -49,6 +79,15 @@ const Login = () => {
               label='Password' id='password' value={password}
               onChange={handleChange}
             />
+          </div>
+          <div>
+            <Router>
+            <Typography className={classes.forgetpass}>
+              <Link to='../Authentication/Recovery/Recovery.js'>
+                <Recovery />
+              </Link>
+            </Typography>
+            </Router>
           </div>
           <div>
             <Button
