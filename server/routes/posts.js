@@ -1,11 +1,11 @@
 import express from 'express'
 
 import {
-	getPosts,
-	getPost,
-	createPost,
-	updatePost,
-	deletePost
+    getPosts,
+    getPost,
+    createPost,
+    updatePost,
+    deletePost
 } from '../controllers/posts.js'
 
 const router = express.Router()

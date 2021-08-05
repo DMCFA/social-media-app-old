@@ -17,6 +17,11 @@ const getPost = async (req, res) => {
     }
 }
 
+const createPost = async (req, res) => {
+    const post = new Post(req.body)
+    
+}
+
 export {
     getPosts,
     getPost
