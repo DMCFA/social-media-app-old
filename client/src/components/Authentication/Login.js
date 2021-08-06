@@ -4,7 +4,6 @@ import Recovery from '../Authentication/Recovery/Recovery.js'
 import loginService from '../../services/login'
 
 import {
-  BrowserRouter as Router,
   Link
 } from "react-router-dom";
 
@@ -56,59 +55,55 @@ const Login = () => {
   }
 
   return(
-    <div>
-      <Header />
-      <div className={classes.flex}>
-        <h2 className={classes.title}>Login to Travel Connect</h2>
-        <div>
-        <form onSubmit={handleSubmit}>
-          <div className={classes.form}>
-            <TextField
-              className={classes.email}
-              autoFocus
-              helperText='Your email goes here'
-              label='Email' id='email' value={email}
-              onChange={handleChange}
+      <div>
+        <Header />
+        <div className={classes.flex}>
+          <h2 className={classes.title}>Login to Travel Connect</h2>
+          <div>
+          <form onSubmit={handleSubmit}>
+            <div className={classes.form}>
+              <TextField
+                className={classes.email}
+                autoFocus
+                helperText='Your email goes here'
+                label='Email' id='email' value={email}
+                onChange={handleChange}
+                />
+            </div>
+            <div>
+              <TextField
+                className={classes.password}
+                autoComplete='off'
+                helperText='Your password goes here'
+                label='Password' id='password' value={password}
+                onChange={handleChange}
               />
+            </div>
+            <div className={classes.forget}>
+              <Typography>
+                <Link to='/recovery' className={classes.link}>Forgot my password</Link>
+              </Typography>
+            </div>
+            <div>
+              <Button
+                className={classes.button} 
+                variant="contained" 
+                color="primary" 
+                type='submit' id='login'>
+                Login
+              </Button>
+              <Button
+                className={classes.button} 
+                variant="contained" 
+                color="secondary" 
+                type='submit' id='signup'>
+                Sign Up
+              </Button>
+            </div>
+          </form>
           </div>
-          <div>
-            <TextField
-              className={classes.password}
-              autoComplete='off'
-              helperText='Your password goes here'
-              label='Password' id='password' value={password}
-              onChange={handleChange}
-            />
-          </div>
-          <div>
-            <Router>
-            <Typography className={classes.forgetpass}>
-              <Link to='../Authentication/Recovery/Recovery.js'>
-                <Recovery />
-              </Link>
-            </Typography>
-            </Router>
-          </div>
-          <div>
-            <Button
-              className={classes.button} 
-              variant="contained" 
-              color="primary" 
-              type='submit' id='login'>
-              Login
-            </Button>
-            <Button
-              className={classes.button} 
-              variant="contained" 
-              color="secondary" 
-              type='submit' id='signup'>
-              Sign Up
-            </Button>
-          </div>
-        </form>
         </div>
       </div>
-    </div>
   )
 }
 

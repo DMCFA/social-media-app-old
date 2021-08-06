@@ -31,5 +31,13 @@ export default makeStyles(() => ({
         alignItems: 'center',
         padding: '15px',
         margin: '10px'
+    },
+    forget: {
+        textAlign: 'center',
+        marginBottom: '10px'
+    },
+    link: {
+        outline: 'none',
+        textDecoration: 'none',
     }
 }))
