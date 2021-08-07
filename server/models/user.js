@@ -30,4 +30,4 @@ userSchema.set('toJSON', {
 
 userSchema.plugin(uniqueValidator)
 
-export default mongoose.model('Post', userSchema)
+export default mongoose.model('User', userSchema)
