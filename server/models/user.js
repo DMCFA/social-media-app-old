@@ -1,8 +1,7 @@
 import mongoose from 'mongoose'
-import { uniqueValidator } from 'mongoose-unique-validator'
+import uniqueValidator from 'mongoose-unique-validator'
 
 const { Schema } = mongoose
-Schema.plugin(uniqueValidator)
 
 const userSchema = new Schema({
     username: {
