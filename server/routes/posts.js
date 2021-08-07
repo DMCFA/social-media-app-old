@@ -8,10 +8,12 @@ import {
     deletePost
 } from '../controllers/posts.js'
 
-const router = express.Router()
+const postsRouter = express.Router()
 
-router.get('/', getPosts)
-router.get('/:id', getPost)
-router.post('/', createPost)
-router.put('/:id', updatePost)
-router.delete('/:id', deletePost)
+postsRouter.get('/', getPosts)
+postsRouter.get('/:id', getPost)
+postsRouter.post('/', createPost)
+postsRouter.put('/:id', updatePost)
+postsRouter.delete('/:id', deletePost)
+
+export default postsRouter
