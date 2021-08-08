@@ -18,7 +18,7 @@ export default makeStyles(() => ({
     form: {
         marginTop: '2rem',
     },
-    email: {
+    username: {
         padding: '5px',
         marginBottom: '3px',
         textAlign: "center"

@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Header from '../Posts/Header/Header'
-import Recovery from '../Authentication/Recovery/Recovery.js'
 import loginService from '../../services/login'
 
 import {
@@ -19,7 +18,7 @@ const Login = () => {
 
   const classes = useStyles()
   
-  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
@@ -29,10 +28,10 @@ const Login = () => {
 
     try {
       const user = await loginService.login({
-        email, password
+        username, password
       })
       setUser(user)
-      setEmail('')
+      setUsername('')
       setPassword('')
     } catch (e) {
       setErrorMessage('Wrong credentials')
@@ -44,13 +43,13 @@ const Login = () => {
 
 
   const handleSubmit = (e) => {
-    setEmail({value: e.target.value})
+    setUsername({value: e.target.value})
     setPassword({value: e.target.value})
     e.preventDefault()
   }
 
   const handleChange = (e) => {
-    setEmail({value: e.target.value})
+    setUsername({value: e.target.value})
     setPassword({value: e.target.value})
   }
 
@@ -63,10 +62,10 @@ const Login = () => {
           <form onSubmit={handleSubmit}>
             <div className={classes.form}>
               <TextField
-                className={classes.email}
+                className={classes.username}
                 autoFocus
-                helperText='Your email goes here'
-                label='Email' id='email' value={email}
+                helperText='Your username goes here'
+                label='username' id='username' value={username}
                 onChange={handleChange}
                 />
             </div>
