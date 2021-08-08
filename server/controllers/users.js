@@ -19,7 +19,9 @@ const createUser = async (req, res) => {
 }
 
 const getUsers = async (req, res) => {
-    const users = await User.find({})
+    const users = await User
+        .find({}).populate('posts', { message: 1, date: 1 })
+
     res.json(users)
 }
 

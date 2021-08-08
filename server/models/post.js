@@ -5,7 +5,7 @@ const { Schema } = mongoose
 const postSchema = new Schema({
     title: String,
     author: String,
-    body: String,
+    message: String,
     comments: [{
         body: String,
         date: Date
