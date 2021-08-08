@@ -1,7 +1,5 @@
-import { jwt } from 'jsonwebtoken'
-
-import { Post } from '../models/post'
-import { User } from '../models/user'
+import Post from '../models/post'
+import User from '../models/user'
 
 const getPosts = async (req, res) => {
     const posts = await Post

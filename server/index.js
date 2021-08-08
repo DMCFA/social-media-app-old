@@ -7,6 +7,7 @@ import { requestLogger, unknownEndpoint, errorHandler } from './utils/middleware
 import { infoMessage, errorMessage } from './utils/logger.js'
 
 import usersRouter from './routes/users.js'
+import loginRouter from './routes/login.js'
 
 const app = express()
 
@@ -28,6 +29,7 @@ mongoose.connect(MONGODB_CONNECTION, ({
 app.use(requestLogger) // before routes
 
 app.use('/users', usersRouter)
+app.use('/login', loginRouter)
 
 app.use(unknownEndpoint) // after routes
 app.use(errorHandler) // after routes
