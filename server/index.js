@@ -18,7 +18,8 @@ app.use(cors())
 mongoose.connect(MONGODB_CONNECTION, ({
     useNewUrlParser: true,
     useFindAndModify: false,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 }))
     .then(() => app.listen(PORT, () => infoMessage(`server running on port: ${PORT}`)))
     .catch((error) => errorMessage(error.message))
