@@ -6,7 +6,7 @@ const createUser = async (req, res) => {
     const body = req.body
 
     const saltRounds = 10
-    const passwordHash = await bcrypt.hash(body.passwordHash, saltRounds)
+    const passwordHash = await bcrypt.hash(body.password, saltRounds)
 
     const user = new User({
         username: body.username,
@@ -18,6 +18,12 @@ const createUser = async (req, res) => {
     res.json(savedUser)
 }
 
+const getUsers = async (req, res) => {
+    const users = await User.find({})
+    res.json(users)
+}
+
 export {
-    createUser
+    createUser,
+    getUsers
 }
