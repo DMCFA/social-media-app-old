@@ -1,3 +1,5 @@
+import jwt from 'jsonwebtoken'
+
 import Post from '../models/post'
 import User from '../models/user'
 
@@ -18,10 +20,31 @@ const getPost = async (req, res) => {
     }
 }
 
-const createPost = async (req, res) => {
-    const { body, title, author, message, keywords, imageFile } = req.body
+//createPost helper function to get auth token
+const getToken = req => {
+    const auth = req.get('authorization')
 
-    const user = await User.findById(body.userId)
+    if (auth && auth.toLowerCase().startsWith('bearer ')) {
+        return auth.substring(7)
+    }
+    return null
+}
+
+
+const createPost = async (req, res) => {
+    const { title, author, message, keywords, imageFile } = req.body
+
+    const token = getToken(req)
+
+    const decodedToken = jwt.verify(token, process.env.SECRET)
+
+    if (!token || !decodedToken.id) {
+        return res.status(401).json({
+            error: 'missing validation'
+        })
+    }
+
+    const user = await User.findById(decodedToken.id)
 
     const post = new Post({
         title,
