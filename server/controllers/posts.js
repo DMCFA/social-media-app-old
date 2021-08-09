@@ -62,8 +62,30 @@ const createPost = async (req, res) => {
     res.json(savedPost)
 }
 
+const updatePost = async (req, res, next) => {
+    const { title, message, keywords } = req.body
+
+    const post = {
+        title,
+        message,
+        keywords
+    }
+
+    const newPost = await Post.findByIdAndUpdate(req.params.id, post, { new: true })
+
+    res.json(newPost)
+}
+
+const deletePost = async (req, res) => {
+
+    await Post.findByIdAndRemove(req.params.id)
+    res.status(204).end()
+}
+
 export {
     getPosts,
     getPost,
-    createPost
+    createPost,
+    updatePost,
+    deletePost
 }
