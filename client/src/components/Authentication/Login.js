@@ -59,14 +59,14 @@ const Login = () => {
         <div className={classes.flex}>
           <h2 className={classes.title}>Login to Travel Connect</h2>
           <div>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleLogin}>
             <div className={classes.form}>
               <TextField
                 className={classes.username}
                 autoFocus
                 helperText='Your username goes here'
-                label='username' id='username' value={username}
-                onChange={handleChange}
+                label='Username' id='username' value={username}
+                onChange={({ target }) => setUsername(target.value)}
                 />
             </div>
             <div>
@@ -75,7 +75,7 @@ const Login = () => {
                 autoComplete='off'
                 helperText='Your password goes here'
                 label='Password' id='password' value={password}
-                onChange={handleChange}
+                onChange={({ target }) => setPassword(target.value)}
               />
             </div>
             <div className={classes.forget}>
