@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Header from '../Posts/Header/Header'
+import Notification from '../Posts/Notification/Notification';
 import loginService from '../../services/login'
 
 import {
@@ -23,6 +24,7 @@ const Login = () => {
   const [user, setUser] = useState(null)
   const [errorMessage, setErrorMessage] = useState(null)
 
+  
   const handleLogin = async (e) => {
     e.preventDefault()
 
@@ -56,6 +58,9 @@ const Login = () => {
   return(
       <div>
         <Header />
+
+        <Notification message={errorMessage} />
+
         <div className={classes.flex}>
           <h2 className={classes.title}>Login to Travel Connect</h2>
           <div>
