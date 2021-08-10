@@ -7,9 +7,9 @@ import {
 
 import useStyles from './styles'
 import Login from './components/Authentication/Login'
-import Recovery from './components/Authentication/Recovery/Recovery'
+import Header from './components/Posts/Header/Header'
 
-function App() {
+function App({ user }) {
 	const classes = useStyles()
 
 	return (
@@ -17,10 +17,9 @@ function App() {
 			<div className={classes.body}>
 				<Switch>
 					<Route exact path='/'>
-					<Login />
-					</Route>
-					<Route path='/recovery'>
-						<Recovery />
+						{!user ? 
+						<Login user={user}/> :
+						< Header />}	
 					</Route>
 				</Switch>
 			</div>
