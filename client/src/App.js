@@ -7,7 +7,8 @@ import {
 
 import useStyles from './styles'
 import Login from './components/Authentication/Login'
-import Header from './components/Posts/Header/Header'
+import Recovery from './components/Authentication/Recovery/Recovery'
+import Posts from './components/Posts/Posts'
 
 function App({ user }) {
 	const classes = useStyles()
@@ -19,7 +20,10 @@ function App({ user }) {
 					<Route exact path='/'>
 						{!user ? 
 						<Login user={user}/> :
-						< Header />}	
+						<Posts />}	
+					</Route>
+					<Route path='/recovery'>
+						<Recovery />
 					</Route>
 				</Switch>
 			</div>
