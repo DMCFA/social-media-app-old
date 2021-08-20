@@ -34,10 +34,17 @@ export default makeStyles(() => ({
     },
     forget: {
         textAlign: 'center',
-        marginBottom: '10px'
+        marginBottom: '10px',
+        padding: '5px 10px',
+        backgroundColor: '#035397',
+        border: '3px solid #035397',
+        borderRadius: '5px'
     },
     link: {
         outline: 'none',
         textDecoration: 'none',
+        color: 'white',
+        fontSize: '14px',
+        textTransform: 'uppercase'
     }
 }))
