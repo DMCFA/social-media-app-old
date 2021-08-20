@@ -13,10 +13,12 @@ export default makeStyles(() => ({
         fontSize: '3rem',
         fontVariant: 'small-caps',
         fontWeight: '600',
-        letterSpacing: '5px'
+        letterSpacing: '5px',
+        padding: '10px',
     },
     form: {
         marginTop: '2rem',
+        textAlign: 'center'
     },
     email: {
         padding: '5px',
