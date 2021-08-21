@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { Link } from "react-router-dom";
 import Header from '../../Posts/Header/Header'
 
 import useStyles from './styles'
 
 import {
+    Typography,
     TextField,
     Button
 } from '@material-ui/core'
@@ -16,7 +18,6 @@ const Recovery = () => {
 
     const handleSubmit = e => {
         setEmail({value: e.target.value})
-        e.preventDefault()
     }
     
     return(
@@ -26,23 +27,25 @@ const Recovery = () => {
             <div className={classes.flex}>
                 <h3 className={classes.title}>Enter your email below</h3>
 
-                <div>
+                <div className={classes.form}>
                     <form onSubmit={handleSubmit}>
-                        <div className={classes.form}>
+                        <div>
                             <TextField
                                 className={classes.email}
                                 helperText='Your email goes here'
-                                label='Email' id='email' value={email}
+                                id='email' value={email}
                                 onChange={({ target }) => setEmail(target.value)}
                                 />
                             <div>
-                                <Button
-                                    className={classes.button}
-                                    variant='contained'
-                                    color='primary'
-                                    type='submit' id='recovery'>
-                                    Recover Your Password
-                                </Button>
+                                <Link to='Posts/Notification/Success' email={email}>
+                                    <Button
+                                        className={classes.button}
+                                        variant='contained'
+                                        color='primary'
+                                        type='submit' id='recovery'>   
+                                        Recover Your Password
+                                    </Button>
+                                </Link>
                             </div>
                         </div>
                     </form>
