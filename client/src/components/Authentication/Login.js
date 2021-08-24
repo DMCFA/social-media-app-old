@@ -4,7 +4,8 @@ import Notification from '../Posts/Notification/Notification';
 import loginService from '../../services/login'
 
 import {
-  Link
+  Link,
+  useHistory
 } from "react-router-dom";
 
 import useStyles from './styles'
@@ -16,6 +17,8 @@ import {
 
 
 const Login = () => {
+
+  const history = useHistory()
 
   const classes = useStyles()
   
@@ -53,6 +56,11 @@ const Login = () => {
   const handleChange = (e) => {
     setUsername({value: e.target.value})
     setPassword({value: e.target.value})
+  }
+
+  const signUp = () => {
+    let path = '/signup'
+    history.push(path)
   }
 
   return(
@@ -97,6 +105,7 @@ const Login = () => {
                 Login
               </Button>
               <Button
+                onClick={signUp}
                 className={classes.button} 
                 variant="contained" 
                 color="secondary" 
