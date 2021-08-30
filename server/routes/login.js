@@ -7,7 +7,7 @@ import {
 
 const loginRouter = express.Router()
 
-loginRouter.post('/', login)
-loginRouter.post('/', logout)
+loginRouter.post('/login', login)
+loginRouter.post('/logout', logout)
 
 export default loginRouter
