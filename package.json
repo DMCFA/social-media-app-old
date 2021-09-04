@@ -1,0 +1,18 @@
+{
+    "scripts": {
+        "client-install": "npm install --prefix client",
+        "server-install": "npm install --prefix server",
+        "client": "npm start --prefix client",
+        "server": "npm start --prefix server",
+        "dev": "concurrently \"npm run dev --prefix server\" \"npm run client\""
+    },
+    "devDependencies": {
+        "eslint": "^7.32.0",
+        "eslint-config-node": "^4.1.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.25.1",
+        "prettier": "^2.3.2"
+    }
+}

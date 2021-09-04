@@ -1,0 +1,14 @@
+{
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12
+  },
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "use-isnan": "off",
+    "no-useless-escape": "warn"
+  }
+}
