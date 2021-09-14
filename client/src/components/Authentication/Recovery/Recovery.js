@@ -8,14 +8,11 @@ import {
     TextField,
     Button
 } from '@material-ui/core'
-import { Link, Redirect, Switch, useHistory, Route } from 'react-router-dom'
 
 
 const Recovery = () => {
 
     const classes = useStyles()
-
-    const history = useHistory()
 
     const [email, setEmail] = useState('')
     const [showSuccess, setShowSuccess] = useState(false)
