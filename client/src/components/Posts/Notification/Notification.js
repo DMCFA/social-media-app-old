@@ -1,11 +1,18 @@
-import React from "react"
+import React from 'react';
 
 const Notification = ({ errorMessage }) => {
-    return(
-        <div style={{display: "none"}}>
-        <h3>Error Message goes here</h3>
-        </div>
-    )
-}
+    const [display, setDisplay] = false;
 
-export default Notification
+    const showMessage = () => {
+        if (true) {
+            //
+        }
+    };
+    return (
+        <div style={showMessage}>
+            <h3>Error Message goes here</h3>
+        </div>
+    );
+};
+
+export default Notification;
