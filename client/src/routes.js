@@ -7,16 +7,14 @@ import Recovery from './components/Authentication/Recovery/Recovery';
 const Routes = () => {
     return (
         <Router>
-            <div className={classes.body}>
-                <Switch>
-                    <Route exact path="/" component={Login}>
-                        {/* {!user ? 
+            <Switch>
+                <Route exact path="/" component={Login}>
+                    {/* {!user ? 
                     <Login user={user}/> :
                     <Posts />}	 */}
-                    </Route>
-                    <Route path="/signup" component={SignUp}></Route>
-                </Switch>
-            </div>
+                </Route>
+                <Route path="/signup" component={SignUp}></Route>
+            </Switch>
         </Router>
     );
 };
