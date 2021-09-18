@@ -10,7 +10,8 @@ const Routes = () => {
         <Router>
             <Switch>
                 <Route path="/login" component={Login}></Route>
-                <Route path="/signup" component={SignUp}></Route>
+                <Route path="/sign-up" component={SignUp}></Route>
+                <Route path="/recover-password" component={Recovery}></Route>
                 {/* <Route exact path="/" component={Home}></Route> */}
             </Switch>
         </Router>
