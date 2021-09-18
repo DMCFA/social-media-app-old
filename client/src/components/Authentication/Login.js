@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import Header from '../Posts/Header/Header';
 import loginService from '../../services/login';
+import store from '../../store';
 
 import { Link, useHistory } from 'react-router-dom';
 
 import useStyles from './styles';
 import { TextField, Button, Typography } from '@material-ui/core';
-import store from '../../store';
-import SignUp from './Sign Up/SignUp';
 
 const Login = () => {
     const history = useHistory();
