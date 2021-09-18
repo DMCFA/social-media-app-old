@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '../../Posts/Header/Header';
 import store from '../../../store';
+import { userSelector } from '../../../reducers/users';
 
 import { useHistory } from 'react-router-dom';
 
 import useStyles from './styles';
-import { TextField, Button, Link } from '@material-ui/core';
-import Login from '../Login';
+import { TextField, Button, Link, Typography } from '@material-ui/core';
 
 const SignUp = () => {
     const classes = useStyles();
 
+    const dispatch = useDispatch();
     const history = useHistory();
+
+    const { isFetching, isSuccess, isError, errorMessage } =
+        useSelector(userSelector);
 
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
@@ -58,21 +63,19 @@ const SignUp = () => {
                     <form onSubmit={handleSubmit}>
                         <div className={classes.form}>
                             <TextField
-                                className={classes.username}
+                                className={classes.input}
                                 autoFocus
-                                helperText="Your username goes here"
-                                label="Username"
+                                helperText="Choose your username"
                                 id="username"
                                 value={username}
                                 onChange={(e) => setUsername(e.target.value)}
                             />
                         </div>
-                        <div className={classes.form}>
+                        <div>
                             <TextField
-                                className={classes.email}
+                                className={classes.input}
                                 autoFocus
-                                helperText="Your email goes here"
-                                label="Email"
+                                helperText="Type your email"
                                 id="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -80,10 +83,9 @@ const SignUp = () => {
                         </div>
                         <div>
                             <TextField
-                                className={classes.password}
+                                className={classes.input}
                                 autoComplete="off"
-                                helperText="Your password goes here"
-                                label="Password"
+                                helperText="Choose your password"
                                 id="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -91,10 +93,9 @@ const SignUp = () => {
                         </div>
                         <div>
                             <TextField
-                                className={classes.password}
+                                className={classes.input}
                                 autoComplete="off"
-                                helperText="Your password goes here"
-                                label="Confirm Password"
+                                helperText="Confirm your password"
                                 id="confirmPassword"
                                 value={confirmPassword}
                                 onChange={(e) =>
@@ -115,13 +116,15 @@ const SignUp = () => {
                             </Button>
                         </div>
                     </form>
-                    <Link
-                        href="login"
-                        className={classes.login}
-                        underline="hover"
-                    >
-                        Already have an account?
-                    </Link>
+                    <Typography>
+                        <Link
+                            href="login"
+                            className={classes.login}
+                            underline="hover"
+                        >
+                            Already have an account?
+                        </Link>
+                    </Typography>
                 </div>
             </div>
         </div>
