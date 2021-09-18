@@ -1,40 +1,42 @@
 import React, { useState } from 'react';
 import Header from '../Posts/Header/Header';
-import Notification from '../Posts/Notification/Notification';
 import loginService from '../../services/login';
 
 import { Link, useHistory } from 'react-router-dom';
 
 import useStyles from './styles';
 import { TextField, Button, Typography } from '@material-ui/core';
+import store from '../../store';
+import SignUp from './Sign Up/SignUp';
 
 const Login = () => {
     const history = useHistory();
 
+    //styles
     const classes = useStyles();
 
+    //username and password state
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const [errorMessage, setErrorMessage] = useState(null);
 
+    //validation
+    const validateForm = () => username.length === 0 || password.length === 0;
+
+    //handle login
     const handleLogin = (e) => {
         e.preventDefault();
 
         //user object
         const user = { username, password };
+
+        // store.dispatch(loginService(user));
     };
 
-    const signUp = () => {
-        let path = '/signup';
-        history.push(path);
-    };
+    const SignUp = () => history.push('sign-up');
 
     return (
         <div>
             <Header />
-
-            <Notification message={errorMessage} />
-
             <div className={classes.flex}>
                 <h2 className={classes.title}>Login to Travel Connect</h2>
                 <div>
@@ -63,7 +65,10 @@ const Login = () => {
                         </div>
                         <div className={classes.forget}>
                             <Typography>
-                                <Link to="/recovery" className={classes.link}>
+                                <Link
+                                    to="/recover-password"
+                                    className={classes.link}
+                                >
                                     Forgot my password
                                 </Link>
                             </Typography>
@@ -73,13 +78,14 @@ const Login = () => {
                                 className={classes.button}
                                 variant="contained"
                                 color="primary"
+                                disabled={validateForm()}
                                 type="submit"
                                 id="login"
                             >
                                 Login
                             </Button>
                             <Button
-                                onClick={signUp}
+                                onClick={SignUp}
                                 className={classes.button}
                                 variant="contained"
                                 color="secondary"
