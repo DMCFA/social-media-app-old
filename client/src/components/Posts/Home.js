@@ -1,22 +1,26 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import useStyles from './styles'
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import useStyles from './styles';
+import Header from './Header/Header';
 import {
     Table,
     TableBody,
     TableCell,
     TableContainer,
     TableRow,
-    Paper
-} from '@material-ui/core'
+    Paper,
+} from '@material-ui/core';
 
-function Post({ post }) {
+const Home = () => {
+    const styles = useStyles();
 
-    const styles = useStyles()
+    const post = useSelector((store) => store.posts);
 
-    return(
-        <div className='container'>
-            <div className='post'>
+    return (
+        <div className="container">
+            <Header />
+            <div className="post">
                 <TableContainer component={Paper}>
                     <Table>
                         <TableBody>
@@ -33,6 +37,7 @@ function Post({ post }) {
                 </TableContainer>
             </div>
         </div>
-    )
+    );
+};
 
-}
+export default Home;
