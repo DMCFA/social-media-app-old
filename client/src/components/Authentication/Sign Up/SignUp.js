@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import toast from 'react-hot-toast';
+
 import Header from '../../Posts/Header/Header';
 import store from '../../../store';
-import { userSelector } from '../../../reducers/users';
-
-import { useHistory } from 'react-router-dom';
+import { userSelector } from '../../../reducers/UserSlice';
 
 import useStyles from './styles';
 import { TextField, Button, Link, Typography } from '@material-ui/core';
@@ -14,6 +15,8 @@ const SignUp = () => {
 
     const dispatch = useDispatch();
     const history = useHistory();
+
+    const notify = () => toast();
 
     const { isFetching, isSuccess, isError, errorMessage } =
         useSelector(userSelector);
@@ -41,7 +44,7 @@ const SignUp = () => {
 
         //password match
         if (password !== confirmPassword) {
-            //error
+            toast.error(errorMessage);
         }
 
         //create new user
@@ -51,8 +54,26 @@ const SignUp = () => {
             password,
         };
 
-        // store.dispatch(register(newUser))
+        store.dispatch(register(newUser));
     };
+
+    useEffect(() => {
+        return () => {
+            dispatch(clearState());
+        };
+    }, []);
+
+    useEffect(() => {
+        if (isSuccess) {
+            dispatch(clearState());
+            history.push('/');
+        }
+
+        if (isError) {
+            toast.error(errorMessage);
+            dispatch(clearState());
+        }
+    }, [isSuccess, isError]);
 
     return (
         <div>
@@ -60,7 +81,7 @@ const SignUp = () => {
             <div className={classes.flex}>
                 <h2 className={classes.title}>Welcome to Travel Connect</h2>
                 <div>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} method="POST">
                         <div className={classes.form}>
                             <TextField
                                 className={classes.input}
