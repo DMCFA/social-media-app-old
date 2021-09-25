@@ -20,8 +20,6 @@ const SignUp = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const notify = () => toast();
-
     const { isFetching, isSuccess, isError, errorMessage } =
         useSelector(userSelector);
 
@@ -89,6 +87,7 @@ const SignUp = () => {
                         <div className={classes.form}>
                             <TextField
                                 className={classes.input}
+                                type="text"
                                 autoFocus
                                 helperText="Choose your username"
                                 id="username"
@@ -99,6 +98,7 @@ const SignUp = () => {
                         <div>
                             <TextField
                                 className={classes.input}
+                                type="email"
                                 autoFocus
                                 helperText="Type your email"
                                 id="email"
@@ -109,6 +109,7 @@ const SignUp = () => {
                         <div>
                             <TextField
                                 className={classes.input}
+                                type="password"
                                 autoComplete="off"
                                 helperText="Choose your password"
                                 id="password"
@@ -119,6 +120,7 @@ const SignUp = () => {
                         <div>
                             <TextField
                                 className={classes.input}
+                                type="password"
                                 autoComplete="off"
                                 helperText="Confirm your password"
                                 id="confirmPassword"
