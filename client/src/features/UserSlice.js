@@ -38,24 +38,39 @@ export const userSlice = createSlice({
     name: 'user',
     initialState: {
         username: '',
+        email: '',
         isFetching: false,
         isSuccess: false,
         isError: false,
         errorMessage: '',
     },
-    reducers: {},
+    reducers: {
+        clearState: (state) => {
+            state.isError = false;
+            state.isSuccess = false;
+            state.isFetching = false;
+
+            return state;
+        },
+    },
     extraReducers: {
-        [signupUser.fulfilled]: (state, { payload }) => {
+        [register.fulfilled]: (state, { payload }) => {
             state.isFetching = false;
             state.isSuccess = true;
             state.email = payload.user.email;
             state.username = payload.user.name;
         },
-        [signupUser.pending]: (state) => {
+        [register.pending]: (state) => {
             state.isFetching = true;
         },
-        [signupUser.rejected]: (state, { payload }) => {},
+        [register.rejected]: (state, { payload }) => {
+            state.isFetching = false;
+            state.isSuccess = false;
+            state.errorMessage = payload.message;
+        },
     },
 });
+
+export const { clearState } = userSlice.actions;
 
 export const userSelector = (state) => state.user;
