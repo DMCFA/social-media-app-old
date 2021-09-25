@@ -5,7 +5,11 @@ import toast from 'react-hot-toast';
 
 import Header from '../../Posts/Header/Header';
 import store from '../../../store';
-import { userSelector } from '../../../reducers/UserSlice';
+import {
+    userSelector,
+    clearState,
+    register,
+} from '../../../features/UserSlice';
 
 import useStyles from './styles';
 import { TextField, Button, Link, Typography } from '@material-ui/core';
