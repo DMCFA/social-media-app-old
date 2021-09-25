@@ -9,10 +9,10 @@ const Routes = () => {
     return (
         <Router>
             <Switch>
+                <Route exact path="/" component={Home}></Route>
                 <Route path="/login" component={Login}></Route>
                 <Route path="/sign-up" component={SignUp}></Route>
                 <Route path="/recover-password" component={Recovery}></Route>
-                {/* <Route exact path="/" component={Home}></Route> */}
             </Switch>
         </Router>
     );
