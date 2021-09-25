@@ -1,16 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-import useStyles from './styles'
+import useStyles from './styles';
 
-const Success = ({email}) => {
+const Success = ({ email }) => {
+    const classes = useStyles();
 
-    const classes = useStyles()
-
-    return(
+    return (
         <div className={classes.notification}>
-            <h2>We sent an email to {email} </h2>
+            <h2 className={classes.successText}>
+                We sent an email to {email}{' '}
+            </h2>
         </div>
-    )
-}
+    );
+};
 
-export default Success
+export default Success;
