@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { userSelector, useDispatch } from '../../features/UserSlice';
 import Header from '../Posts/Header/Header';
-import loginService from '../../services/login';
 import store from '../../store';
+import toast from 'react-hot-toast';
 
 import { Link, useHistory } from 'react-router-dom';
 
@@ -9,6 +10,7 @@ import useStyles from './styles';
 import { TextField, Button, Typography } from '@material-ui/core';
 
 const Login = () => {
+    const dispatch = useDispatch();
     const history = useHistory();
 
     //styles
@@ -20,6 +22,10 @@ const Login = () => {
 
     //validation
     const validateForm = () => username.length === 0 || password.length === 0;
+
+    const onSubmit = (data) => {
+        dispatch(loginUser(data));
+    };
 
     //handle login
     const handleLogin = (e) => {
